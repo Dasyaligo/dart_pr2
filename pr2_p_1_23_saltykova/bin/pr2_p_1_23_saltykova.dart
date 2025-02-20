@@ -2,17 +2,18 @@ import 'dart:io';
 
 void main(List<String> arguments) {
   Directory('books').createSync(recursive: true);
-  DateTime now = new DateTime.now();
+  DateTime now =  DateTime.now();
   String date = "${now.day.toString()}-${now.month.toString()}-${now.year.toString()}";
- 
-  
-  File myFile = File('C:/Users/Buzun/Desktop/Practic2/pr2_p_1_23_saltykova/books/books_$date.txt');
+  File myFile = File('./books/books_$date.txt');
 
+ 
 
   if (myFile.existsSync()) {
     print("Файл существует");
   } else {
     print("Файла нет");
+    myFile.createSync();
+    print("Файл создан");
   }
 
   
